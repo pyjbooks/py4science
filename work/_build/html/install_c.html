@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>C/C++コンパイラのインストール &mdash; Web補足情報：『科学技術計算のためのPython入門』</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
+    <link rel="next" title="Pythonのインストール全般" href="install_pkgs.html" />
+    <link rel="prev" title="本書のサンプルコード" href="sample_code.html" /> 
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Web補足情報：『科学技術計算のためのPython入門』</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="sample_code.html" title="本書のサンプルコード"
+             accesskey="P">前へ</a> |
+          <a href="install_pkgs.html" title="Pythonのインストール全般"
+             accesskey="N">次へ</a> |
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="c-c">
+<h1>C/C++コンパイラのインストール<a class="headerlink" href="#c-c" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ここでは、C言語で実装されたPythonの参照実装であるCPythonを使う場合を前提として話をします。
+python.orgが配布しているPythonや、主要なディストリビューションパッケージに含まれるPython
+はCPythonですので、良く分からない方は、CPythonを使っていると思ってください。</p>
+<div class="section" id="id1">
+<h2>どういう場合にC/C++コンパイラが必要となるか？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>PythonでC/C++コンパイラが必要となる場面は、次のような場合です。</p>
+<ul class="simple">
+<li>ライブラリ（パッケージ）のインストール時に、C/C++のソースコードをコンパイルする必要がある場合</li>
+<li>Cythonを使う場合</li>
+</ul>
+<p>まず、最初に挙げた例では、インストール時に必要になる例です。
+関数がC/C++で実装されていて、それをPythonから呼び出して使う仕組みになっている場合には、
+インストール時にそのC/C++のソースコードをコンパイルする必要が場合があります。
+コンパイル自体は、インストールスクリプトが自動的に行ってくれますが、コンパイラは事前に準備して
+おかないと、そのライブラリ（パッケージ）をインストールすることができません。
+そのため、様々なライブラリを独自にインストールして試してみたいと考えている方は、C/C++コンパイラを
+インストールしておくことを強くお勧めします。</p>
+<p>２つ目の例は、PythonコードをC言語化して高速化を図るCythonを使う場合です。
+科学技術計算にPythonを使う方は、プログラムの高速化が必須であり、NumPyの機能だけでは
+十分に高速化が図れない場合には、Cythonの利用が必要となる場合もあるでしょう。
+そのような場合、適切なC/C++コンパイラをあらかじめインストールしておく必要があります。</p>
+</div>
+<div class="section" id="id2">
+<h2>注意が必要なC/C++コンパイラのインストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>C/C++コンパイラは、何でも良いわけではありません。OS XやLinuxでは、gccを使えば良いのですが、
+問題はWindowsの場合です。Windowsの場合も、MinGWというgcc実装があるのですが、このgccを
+使うとうまく動かない場合があります。一番良いのは、Python本体がコンパイルされたコンパイラに、
+バージョンを含めて合わせることです。Windows向けのPython本体（CPython）は、Microsoft社の
+Visual Studioを使ってコンパイルされています。Pythonのバージョンによって、使われている
+Visual Studioのバージョンが異なり、そのバージョンに合わせたC/C++コンパイラを用意して
+おかないといけません。</p>
+<p>Python本体と、Cythonを使ってコンパイルしたプログラムが、異なるバージョンの
+Visual C++ランタイムを呼び出すようになっていると、<a class="reference external" href="http://p-nand-q.com/python/building-python-33-with-vs2013.html">いろいろと不都合が生じてしまうようです</a>。</p>
+</div>
+<div class="section" id="windowsc-c">
+<h2>WindowsにおけるC/C++コンパイラのインストール<a class="headerlink" href="#windowsc-c" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">「科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化」の紹介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコード</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C/C++コンパイラのインストール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">どういう場合にC/C++コンパイラが必要となるか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">注意が必要なC/C++コンパイラのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windowsc-c">WindowsにおけるC/C++コンパイラのインストール</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_pkgs.html">Pythonのインストール全般</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="sample_code.html" title="本書のサンプルコード"
+              >前へ</a> |
+            <a href="install_pkgs.html" title="Pythonのインストール全般"
+              >次へ</a> |
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/install_c.txt"
+                rel="nofollow">ソースコードを表示</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Kenji Nakakuki.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pythonのインストール全般 &mdash; Web補足情報：『科学技術計算のためのPython入門』</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
+    <link rel="prev" title="C/C++コンパイラのインストール" href="install_c.html" /> 
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">Web補足情報：『科学技術計算のためのPython入門』</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="install_c.html" title="C/C++コンパイラのインストール"
+             accesskey="P">前へ</a> |
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python">
+<h1>Pythonのインストール全般<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>ディストリビューションパッケージ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>主なディストリビューションパッケージには以下のようなものがあります。</p>
+<ul class="simple">
+<li>Anaconda（一部のサービスが有償）</li>
+<li>WinPython</li>
+<li>Python(x,y)</li>
+<li>Enthought Canopy（無償のExpress版と有償版がある）</li>
+</ul>
+<p>この中で一番のお勧めは、Anacondaです。
+科学技術計算や、（ビッグ）データ解析などに使われる多くのパッケージを一度にインストールできて、
+NumPyもIntel MKLにリンクされており、動作が高速です。ごく一部のパッケージが有償で提供されて
+いますが、ほとんどの主要なパッケージはオープンソースプロジェクトですので無償で利用できます。</p>
+<div class="section" id="anaconda">
+<h3>Anacondaのインストール<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://www.continuum.io/downloads">Anaconda</a> は、400を超える <a class="reference external" href="https://docs.continuum.io/anaconda/pkg-docs">パッケージ</a> を提供しており、そのうち標準インストールの対象となっている
+パッケージ全体をまとめたインストーラがダウンロード可能です。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>個別のパッケージのインストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="line-profiler">
+<h3>line_profilerのインストールと設定<a class="headerlink" href="#line-profiler" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>計算負荷のプロファイリングにおいて、行ごとのプロファイルを行うには、「line_profiler」というパッケージ（ライブラリ）
+を利用すると便利です。pipによって、以下のように簡単にインストールできます。pipにパスが通っている状態で、
+シェル（Windowsの場合「コマンドプロンプト」、Linuxの場合Bashなど）を開いて、以下のようにコマンドを入力します。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install line_profiler
+</pre></div>
+</div>
+<p>line_profilerは、Anacondaのパッケージとしても用意されています（2016年9月現在）ので、
+Anacondaを使っている方は、condaを使って簡単にインストールできます。
+line_profilerは、Anacondaのインストーラには含まれていないので、手動でインストールする必要があります。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install line_profiler
+</pre></div>
+</div>
+<p>line_profilerをIPythonで利用する際、line_proifler用のマジックコマンドを使うには、
+IPythonの拡張機能として登録しておく必要があります。それには、IPythonの設定ファイルである
+「ipython_config.py」に、以下のように書いておきます。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;line_profiler&#39;</span><span class="p">,</span>   <span class="c1"># ←この行がline_profiler用の設定</span>
+    <span class="s1">&#39;memory_profiler&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cython&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>なお、IPythonの設定ファイルは、通常「~/.ipython/profile_default/」というフォルダに置いてあります。
+「~」（チルダ）はホームディレクトリの意味です。WindowsでAnacondaをインストールした場合は、
+「C:\users\&lt;UserName&gt;」(&lt;UserName&gt;はアカウント名に置き換え)というフォルダが該当する場合が
+多いと思います。</p>
+<p>また、設定ファイルをまだ作成していない場合には、設定ファイルを含む「プロファイル」をまず生成する必要があります。
+それには、「Anaconda Prompt」（Anaconda関係のコマンドにパスが通ったシェル
+（Windowsのコマンドプロンプトなど））を起動して、次のようにします。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">profile</span> <span class="n">create</span> <span class="p">[</span><span class="n">profilename</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>デフォルトの設定だけ用意すれば良い場合は、[profilename]を省略できます。
+このようにして自動生成された「ipython_config.py」に対して、上記のような設定を行います。</p>
+</div>
+<div class="section" id="memory-profiler">
+<h3>memory_profilerのインストールと設定<a class="headerlink" href="#memory-profiler" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Pythonプログラムのメモリ利用量の変化を把握するには、memory_profilerを利用すると便利です。
+memory_profilerのインストールと設定に関する説明は、line_profilerの場合と全く同じになります。
+上記の説明で、line_profilerをmemory_profilerと読み替えていただければ結構です。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>目次</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">「科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化」の紹介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコード</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_c.html">C/C++コンパイラのインストール</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pythonのインストール全般</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">ディストリビューションパッケージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">個別のパッケージのインストール</a></li>
+</ul>
+</li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">検索</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="検索" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="install_c.html" title="C/C++コンパイラのインストール"
+              >前へ</a> |
+            <a href="genindex.html" title="総合索引"
+              >索引</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/install_pkgs.txt"
+                rel="nofollow">ソースコードを表示</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Kenji Nakakuki.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1 で生成しました。
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
