@@ -122,8 +122,8 @@ func_bブランチはそこで開発を中止すれば良いのです。
 Gitは多くの機能を備えています。利用に慣れてきたら徐々に高度な使い方もマスターできるように
 学習してみてください。
 
-.. image:: 2_06_branch.png
-   :scale: 60 %
+.. figure:: 2_06_branch.png
+   :figwidth: 50 %
    :alt: ブランチの例
    :align: center
 
