@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
+    <link rel="next" title="Gitでバージョンを管理する" href="git.html" />
     <link rel="prev" title="C/C++コンパイラのインストール" href="install_c.html" /> 
   </head>
   <body role="document">
@@ -35,6 +36,8 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="install_c.html" title="C/C++コンパイラのインストール"
              accesskey="P">前へ</a> |
+          <a href="git.html" title="Gitでバージョンを管理する"
+             accesskey="N">次へ</a> |
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a>
         </div>
@@ -67,7 +70,8 @@ NumPyもIntel MKLにリンクされており、動作が高速です。ごく一
 <div class="section" id="anaconda">
 <h3>Anacondaのインストール<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://www.continuum.io/downloads">Anaconda</a> は、400を超える <a class="reference external" href="https://docs.continuum.io/anaconda/pkg-docs">パッケージ</a> を提供しており、そのうち標準インストールの対象となっている
-パッケージ全体をまとめたインストーラがダウンロード可能です。</p>
+パッケージ全体をまとめたインストーラがダウンロード可能です。Anacondaは、Linux、OS X、Windowsの
+全てのプラットフォームに対応しており、OSが32bitでも64bitでも使えます（別々のインストーラが用意してあります）。全体がまとめられたインストーラをダウンロードしてインストールするだけなので、非常に簡単です。</p>
 </div>
 </div>
 <div class="section" id="id4">
@@ -116,6 +120,16 @@ memory_profilerのインストールと設定に関する説明は、line_profil
 上記の説明で、line_profilerをmemory_profilerと読み替えていただければ結構です。</p>
 </div>
 </div>
+<div class="section" id="windows">
+<h2>Windows用パッケージの見つけ方<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Anacondaなどのディストリビューションパッケージでは、実に多くの主要パッケージ（ライブラリ）をWindowsでも利用可能にしてくれていますが、それでもなお、Windows向けには提供されていないものがあります。
+そのような場合に、役に立つのが <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Christoph Gohlke氏が提供している非公式パッケージ</a> です。「非公式」と言っても、
+非常に多くのパッケージを網羅していますので、Windowsを使っている方は、まずはこちらにパッケージが置いてないかどうか、探してみると良いでしょう。インストールに苦労しないためにも、このようなサイトに準備されているwheelと呼ばれるパッケージをインストールするのが賢明です。筆者も、basemapパッケージなどをこちらからダウンロードして使わせていただいています。</p>
+<p>なお、ダウンロードしたwheelファイルは次のようにしてpipを使ってインストールします。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install SomePackage-1.0-py2.py3-none-any.whl
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -127,13 +141,15 @@ memory_profilerのインストールと設定に関する説明は、line_profil
           <h3>目次</h3>
           <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">「科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化」の紹介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコード</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコードと正誤表</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_c.html">C/C++コンパイラのインストール</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pythonのインストール全般</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">ディストリビューションパッケージ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">個別のパッケージのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows用パッケージの見つけ方</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Gitでバージョンを管理する</a></li>
 </ul>
 
           <div role="search">
@@ -156,6 +172,8 @@ memory_profilerのインストールと設定に関する説明は、line_profil
           <div role="navigation" aria-label="related navigaton">
             <a href="install_c.html" title="C/C++コンパイラのインストール"
               >前へ</a> |
+            <a href="git.html" title="Gitでバージョンを管理する"
+              >次へ</a> |
             <a href="genindex.html" title="総合索引"
               >索引</a>
           </div>

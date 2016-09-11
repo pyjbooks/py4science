@@ -10,6 +10,7 @@ Contents:
    sample_code
    install_c
    install_pkgs
+   git
 
 Search:
 

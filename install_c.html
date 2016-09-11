@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
     <link rel="next" title="Pythonのインストール全般" href="install_pkgs.html" />
-    <link rel="prev" title="本書のサンプルコード" href="sample_code.html" /> 
+    <link rel="prev" title="本書のサンプルコードと正誤表" href="sample_code.html" /> 
   </head>
   <body role="document">
     <div class="header-wrapper" role="banner">
@@ -34,7 +34,7 @@
         <div class="headertitle"><a
           href="index.html">Web補足情報：『科学技術計算のためのPython入門』</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="sample_code.html" title="本書のサンプルコード"
+          <a href="sample_code.html" title="本書のサンプルコードと正誤表"
              accesskey="P">前へ</a> |
           <a href="install_pkgs.html" title="Pythonのインストール全般"
              accesskey="N">次へ</a> |
@@ -82,14 +82,122 @@ python.orgが配布しているPythonや、主要なディストリビューシ�
 問題はWindowsの場合です。Windowsの場合も、MinGWというgcc実装があるのですが、このgccを
 使うとうまく動かない場合があります。一番良いのは、Python本体がコンパイルされたコンパイラに、
 バージョンを含めて合わせることです。Windows向けのPython本体（CPython）は、Microsoft社の
-Visual Studioを使ってコンパイルされています。Pythonのバージョンによって、使われている
-Visual Studioのバージョンが異なり、そのバージョンに合わせたC/C++コンパイラを用意して
-おかないといけません。</p>
+Visual C++を使ってコンパイルされています。Pythonのバージョンによって、使われている
+Visual C++のバージョンが異なりますので、そのバージョンに合わせたC/C++コンパイラを用意する必要があります。</p>
 <p>Python本体と、Cythonを使ってコンパイルしたプログラムが、異なるバージョンの
 Visual C++ランタイムを呼び出すようになっていると、<a class="reference external" href="http://p-nand-q.com/python/building-python-33-with-vs2013.html">いろいろと不都合が生じてしまうようです</a>。</p>
 </div>
 <div class="section" id="windowsc-c">
 <h2>WindowsにおけるC/C++コンパイラのインストール<a class="headerlink" href="#windowsc-c" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Windowsでは、Microsoft社のVisual C++（Visual Studio）をインストールします。
+その際、上記のようにPython本体がコンパイルされたコンパイラのバージョンに合わせる必要があります。</p>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-number">TABLE 1 </span><span class="caption-text">Pythonのバージョンと対応するVisual C++のバージョン</span><a class="headerlink" href="#id5" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="12%" />
+<col width="10%" />
+<col width="15%" />
+<col width="21%" />
+<col width="21%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pythonのバージョン</th>
+<th class="head">VC++ version</th>
+<th class="head">_MSC_VER</th>
+<th class="head">開発環境名</th>
+<th class="head">C runtime</th>
+<th class="head">C++ runtime</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2.7</td>
+<td>9.0</td>
+<td>1500</td>
+<td>Visual Studio 2008</td>
+<td>MSVCR90.DLL</td>
+<td>MSVCP90.DLL</td>
+</tr>
+<tr class="row-odd"><td>3.4</td>
+<td>10.0</td>
+<td>1600</td>
+<td>Visual Studio 2010</td>
+<td>MSVCR100.DLL</td>
+<td>MSVCP100.DLL</td>
+</tr>
+<tr class="row-even"><td>3.5</td>
+<td>14.0</td>
+<td>1900</td>
+<td>Visual Studio 2015</td>
+<td>注１</td>
+<td>MSVCP140.DLL</td>
+</tr>
+</tbody>
+</table>
+<p>注１）Universal CRTが導入されています。<a class="reference external" href="https://blogs.msdn.microsoft.com/vcblog/2015/03/03/introducing-the-universal-crt/">詳しくはこちら</a>。</p>
+<p>これからPythonをインストールされる方は、Python 2.7もしくは、Python 3.5を使われると思いますので、
+これらについて、以下のようにインストールすべきコンパイラパッケージを示します。「Visual Studio 2015 Community」に
+ついては、ライセンス上の制限があり、要件を満たす方しか使えませんのでご注意ください。
+また、Professional版などの有料版コンパイラを使われている方は、そちらでも問題なく使えるはずです。
+なお、下記の表の中のコンパイラパッケージ名は、リンクになっています。インストールパッケージは、そのリンク先からダウンロード可能です。</p>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-number">TABLE 2 </span><span class="caption-text">VC++を含むコンパイラパッケージと、対応するPythonのバージョン</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">Python 2.7(32bit)</th>
+<th class="head">Python 2.7(64bit)</th>
+<th class="head">Python 3.5(32bit)</th>
+<th class="head">Python 3.5(64bit)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=44266">Visual C++ Compiler for Python 2.7</a></td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual C++ Build Tools 2015</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://www.visualstudio.com/ja-jp/products/visual-studio-express-vs.aspx">Visual Studio 2015 Express for Windows Desktop</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://www.visualstudio.com/ja-jp/products/visual-studio-community-vs.aspx">Visual Studio 2015 Community</a></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+<td><blockquote class="first last">
+<div>〇</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -102,7 +210,7 @@ Visual C++ランタイムを呼び出すようになっていると、<a class="
           <h3>目次</h3>
           <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">「科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化」の紹介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコード</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sample_code.html">本書のサンプルコードと正誤表</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">C/C++コンパイラのインストール</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">どういう場合にC/C++コンパイラが必要となるか？</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">注意が必要なC/C++コンパイラのインストール</a></li>
@@ -110,6 +218,7 @@ Visual C++ランタイムを呼び出すようになっていると、<a class="
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install_pkgs.html">Pythonのインストール全般</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Gitでバージョンを管理する</a></li>
 </ul>
 
           <div role="search">
@@ -130,7 +239,7 @@ Visual C++ランタイムを呼び出すようになっていると、<a class="
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="sample_code.html" title="本書のサンプルコード"
+            <a href="sample_code.html" title="本書のサンプルコードと正誤表"
               >前へ</a> |
             <a href="install_pkgs.html" title="Pythonのインストール全般"
               >次へ</a> |
