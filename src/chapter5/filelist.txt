@@ -1,0 +1,10 @@
+p.173  : class1.py
+p.175  : class2.py
+p.177  : inheritance1.py
+p.179(リスト5.4) : static1.py
+p.179(リスト5.5) : instance1.py
+p.180  : classmethod1.py
+p.182  : scope_error.py
+p.183  : class3.py
+
+

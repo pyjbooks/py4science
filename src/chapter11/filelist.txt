@@ -1,0 +1,6 @@
+p.327  : for_listcomp.py
+p.333  : spd_profile.py
+p.335  : spd_profile2.py (spd_profile.pyの例の「if __name__ == '__main__':
+以下」を書き換えたもの。line_profiler利用の例。)
+p.346  : spd_multip2.py
+

@@ -1,0 +1,16 @@
+p. 199とp.200のソースコード中(各ページ１か所)
+誤）# 保存ｌするオブジェクトの準備
+正）# 保存するオブジェクトの準備
+
+p.363
+誤）In [14]: %run numba_jit.py
+正）In [14]: %run spd_numba1.py
+
+p.366
+誤）In [15]: %run numba_classjit.py # @jitclassデコレータが無効な場合
+正）In [15]: %run spd_numba2.py # @jitclassデコレータが無効な場合
+
+p.366
+誤）In [16]: %run numba_classjit.py # @jitclassデコレータが有効な場合
+正）In [16]: %run spd_numba2.py # @jitclassデコレータが有効な場合
+
