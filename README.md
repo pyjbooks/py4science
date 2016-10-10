@@ -3,7 +3,7 @@
 本レポジトリは、技術評論社から出版された以下の書籍
 のWeb補足情報を提供するためのものです。
 
-![カバーイメージ](https://pyjbooks.github.io/py4science/_images/cover_image.png "書籍のカバーイメージ" | width=200)
+![カバーイメージ](./cover_image.png "書籍のカバーイメージ" | width=200)
 
 タイトル: 科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化
 著者: 中久喜 健司（なかくき けんじ）
