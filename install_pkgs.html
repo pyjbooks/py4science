@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Pythonのインストール全般 &mdash; Web補足情報：『科学技術計算のためのPython入門』</title>
+    <title>Pythonのインストール全般 &#8212; Web補足情報：『科学技術計算のためのPython入門』</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,15 +17,17 @@
         VERSION:     '1.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
-    <link rel="next" title="Gitでバージョンを管理する" href="git.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="書籍に関連したアップデート情報" href="updates.html" />
     <link rel="prev" title="C/C++コンパイラのインストール" href="install_c.html" /> 
   </head>
   <body role="document">
@@ -36,7 +38,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="install_c.html" title="C/C++コンパイラのインストール"
              accesskey="P">前へ</a> |
-          <a href="git.html" title="Gitでバージョンを管理する"
+          <a href="updates.html" title="書籍に関連したアップデート情報"
              accesskey="N">次へ</a> |
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a>
@@ -80,19 +82,19 @@ NumPyもIntel MKLにリンクされており、動作が高速です。ごく一
 <h3>line_profilerのインストールと設定<a class="headerlink" href="#line-profiler" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>計算負荷のプロファイリングにおいて、行ごとのプロファイルを行うには、「line_profiler」というパッケージ（ライブラリ）
 を利用すると便利です。pipによって、以下のように簡単にインストールできます。pipにパスが通っている状態で、
-シェル（Windowsの場合「コマンドプロンプト」、Linuxの場合Bashなど）を開いて、以下のようにコマンドを入力します。:</p>
+シェル（Windowsの場合「コマンドプロンプト」、Linuxの場合Bashなど）を開いて、以下のようにコマンドを入力します。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install line_profiler
 </pre></div>
 </div>
 <p>line_profilerは、Anacondaのパッケージとしても用意されています（2016年9月現在）ので、
 Anacondaを使っている方は、condaを使って簡単にインストールできます。
-line_profilerは、Anacondaのインストーラには含まれていないので、手動でインストールする必要があります。:</p>
+line_profilerは、Anacondaのインストーラには含まれていないので、手動でインストールする必要があります。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install line_profiler
 </pre></div>
 </div>
 <p>line_profilerをIPythonで利用する際、line_proifler用のマジックコマンドを使うには、
 IPythonの拡張機能として登録しておく必要があります。それには、IPythonの設定ファイルである
-「ipython_config.py」に、以下のように書いておきます。:</p>
+「ipython_config.py」に、以下のように書いておきます。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;line_profiler&#39;</span><span class="p">,</span>   <span class="c1"># ←この行がline_profiler用の設定</span>
     <span class="s1">&#39;memory_profiler&#39;</span><span class="p">,</span>
@@ -106,7 +108,7 @@ IPythonの拡張機能として登録しておく必要があります。それ�
 多いと思います。</p>
 <p>また、設定ファイルをまだ作成していない場合には、設定ファイルを含む「プロファイル」をまず生成する必要があります。
 それには、「Anaconda Prompt」（Anaconda関係のコマンドにパスが通ったシェル
-（Windowsのコマンドプロンプトなど））を起動して、次のようにします。:</p>
+（Windowsのコマンドプロンプトなど））を起動して、次のようにします。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">profile</span> <span class="n">create</span> <span class="p">[</span><span class="n">profilename</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -119,13 +121,67 @@ IPythonの拡張機能として登録しておく必要があります。それ�
 memory_profilerのインストールと設定に関する説明は、line_profilerの場合と全く同じになります。
 上記の説明で、line_profilerをmemory_profilerと読み替えていただければ結構です。</p>
 </div>
+<div class="section" id="basemap">
+<h3>basemapのインストール<a class="headerlink" href="#basemap" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本書で例題として挙げた <a class="reference external" href="https://github.com/pyjbooks/PyRockSim">PyRockSim</a> を利用するには、地図描画用に basemap というパッケージが必要となります。</p>
+<p>2017年2月の時点では、 Linux/OS X用のパッケージがAnaconda（Python 2.7/3.4/3.5/3.6の全てのバージョンでbasemap 1.0.7が使えます）に
+用意されています。LinuxまたはOS Xを利用している方は、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install basemap
+</pre></div>
+</div>
+<p>とすればインストール可能です。</p>
+<p>また、 Windowsの場合、<a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Christoph Gohlkeが公開しているWindows用パッケージ</a> を使えばほぼ問題なく使えると思われます。
+Christoph GohlkeはWheel形式のパッケージを配布していますので、PythonのバージョンとOSの種類（32bit OS/64bit OS）に対応するWheelをダウンロードして、
+例えば以下のようにインストールします(32bit版 WindowsでPython 3.5を使う場合)。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install basemap-1.0.8-cp35-none-win32.whl
+</pre></div>
+</div>
+<p>なお、2017年2月時点で最新のAnaconda 4.3.0(Python 3.6版)を使っている場合は、依存関係のあるパッケージも同時にインストールする必要（適切にC/C++コンパイラがインストールされて
+おり、適切に環境設定されていれば、basemapのインストールをpipに指示するだけで、あとはpipが勝手に必要なパッケージをダウンロードして、コンパイル後にインストールしてくれます。
+しかし、下記のように必要なコンパイル済みパッケージを全てダウンロードしてインストールする方がトラブルに遭遇する可能性は低くなります。）が
+あるので、まずChristoph Gohlkeのパッケージから以下の3つのパッケージを取得します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pyproj</span><span class="o">-</span><span class="mf">1.9</span><span class="o">.</span><span class="mf">5.1</span><span class="o">-</span><span class="n">cp36</span><span class="o">-</span><span class="n">cp36m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
+<span class="n">pyshp</span><span class="o">-</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+<span class="n">basemap</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">8</span><span class="o">-</span><span class="n">cp36</span><span class="o">-</span><span class="n">cp36m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+<p>これらの3つのwheelパッケージを、pipを使ってインストールしていきます。
+（以下、&#8221;Anaconda Prompt&#8221;(DOSコマンドプロンプト)のプロンプトを &gt; で表します）</p>
+<p>具体的には、3つのwheelパッケージを保存したフォルダにおいて、
+以下の3つのコマンドを実行します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyproj</span><span class="o">-</span><span class="mf">1.9</span><span class="o">.</span><span class="mf">5.1</span><span class="o">-</span><span class="n">cp36</span><span class="o">-</span><span class="n">cp36m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
+<span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyshp</span><span class="o">-</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+<span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">basemap</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">8</span><span class="o">-</span><span class="n">cp36</span><span class="o">-</span><span class="n">cp36m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+<p>以上でインストール終了です。</p>
+<p>ところで、Windowsユーザがbasemapをインストールする方法にはもう一つあります。
+それは、conda（Anacondaのパッケージマネージャ）を使ってインストールする方法です。
+先に述べたように、AnacondaはWindows用のbasemapパッケージを提供していませんが、<a class="reference external" href="https://conda-forge.github.io/">conda-forge</a>
+のconda用のパッケージレポジトリに、Windows用（32bit/64bit両方）の
+パッケージが用意されているのです。</p>
+<p>具体的には、以下の2つのインストールコマンドを実行します。「-c conda-forge」は、パッケージを「conda-forge」から取得してくる
+ことを意味します。2つ目のコマンドでは、詳細な精度の高い地図データをインストールしています。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">basemap</span><span class="o">=</span><span class="mf">1.0</span><span class="o">.</span><span class="mf">8.</span><span class="n">dev0</span>
+<span class="o">&gt;</span> <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">basemap</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">hires</span>
+</pre></div>
+</div>
+<p>これらを実行するだけで、インストール完了です。ただし、上記のコマンドで「1.0.8.dev0」とあるところは、
+適宜最新のバージョンを指定するといいでしょう。最新のバージョンは、<a class="reference external" href="https://anaconda.org/conda-forge/basemap">ここ</a> で確認できます。</p>
+<p>なお、basemapインストールの際に、conda自体のバージョンが古いものに変わってしまう場合があります。
+他のパッケージの管理に影響すると考えられる場合は、次のようにしてcondaのバージョンを戻してしまいましょう。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">conda</span> <span class="n">update</span> <span class="n">conda</span>
+</pre></div>
+</div>
+<p>これでcondaのバージョンを元に戻しても、basemapの利用上はなんら問題ありません。</p>
+</div>
 </div>
 <div class="section" id="windows">
 <h2>Windows用パッケージの見つけ方<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Anacondaなどのディストリビューションパッケージでは、実に多くの主要パッケージ（ライブラリ）をWindowsでも利用可能にしてくれていますが、それでもなお、Windows向けには提供されていないものがあります。
 そのような場合に、役に立つのが <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Christoph Gohlke氏が提供している非公式パッケージ</a> です。「非公式」と言っても、
 非常に多くのパッケージを網羅していますので、Windowsを使っている方は、まずはこちらにパッケージが置いてないかどうか、探してみると良いでしょう。インストールに苦労しないためにも、このようなサイトに準備されているwheelと呼ばれるパッケージをインストールするのが賢明です。筆者も、basemapパッケージなどをこちらからダウンロードして使わせていただいています。</p>
-<p>なお、ダウンロードしたwheelファイルは次のようにしてpipを使ってインストールします。:</p>
+<p>なお、ダウンロードしたwheelファイルは次のようにしてpipを使ってインストールします。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install SomePackage-1.0-py2.py3-none-any.whl
 </pre></div>
 </div>
@@ -149,6 +205,7 @@ memory_profilerのインストールと設定に関する説明は、line_profil
 <li class="toctree-l2"><a class="reference internal" href="#windows">Windows用パッケージの見つけ方</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="updates.html">書籍に関連したアップデート情報</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Gitでバージョンを管理する</a></li>
 </ul>
 
@@ -172,14 +229,14 @@ memory_profilerのインストールと設定に関する説明は、line_profil
           <div role="navigation" aria-label="related navigaton">
             <a href="install_c.html" title="C/C++コンパイラのインストール"
               >前へ</a> |
-            <a href="git.html" title="Gitでバージョンを管理する"
+            <a href="updates.html" title="書籍に関連したアップデート情報"
               >次へ</a> |
             <a href="genindex.html" title="総合索引"
               >索引</a>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/install_pkgs.txt"
+              <a href="_sources/install_pkgs.rst.txt"
                 rel="nofollow">ソースコードを表示</a>
           </div>
         </div>
@@ -187,8 +244,8 @@ memory_profilerのインストールと設定に関する説明は、line_profil
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Kenji Nakakuki.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1 で生成しました。
+        &#169; Copyright 2016, Kenji Nakakuki.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>

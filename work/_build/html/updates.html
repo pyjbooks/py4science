@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>書籍に関連したアップデート情報 &mdash; Web補足情報：『科学技術計算のためのPython入門』</title>
+    <title>書籍に関連したアップデート情報 &#8212; Web補足情報：『科学技術計算のためのPython入門』</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,14 +17,16 @@
         VERSION:     '1.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="top" title="Web補足情報：『科学技術計算のためのPython入門』" href="index.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="Gitでバージョンを管理する" href="git.html" />
     <link rel="prev" title="Pythonのインストール全般" href="install_pkgs.html" /> 
   </head>
@@ -58,17 +60,63 @@
 <h2>Spyder 3.0.0がリリース<a class="headerlink" href="#spyder-3-0-0" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
 <h3>メニューが日本語対応に!<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Spyder 3.0.0から、GUIのメニューなどが日本語化されました。最新版のAnaconda(2016/10/10時点で
-Anaconda 4.2.0)をインストールすると、Spyder 3.0.0がインストールされ、日本語化されたSpyderが
+<p>本書執筆時点では、Spyderのメニューは日本語対応していませんでしたが、
+Spyder 3.0.0（2016年9月24日リリース）以降から、GUIのメニューなどが日本語化されました。最新版のAnaconda(2017年2月時点で
+Anaconda 4.3.0)をインストールすると、Spyder 3.1.2がインストールされ、日本語化されたSpyderが
 使えます。筆者が試してみると、最初から日本語設定になってくれましたが、言語は設定メニューから選択
 できるので、インストール後に英語のメニューになっている場合は、自分で設定変更すれば日本語になります。</p>
 </div>
 <div class="section" id="id3">
 <h3>ライトモードが廃止に！<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>GUIは最小限にとどめておきたい方には好まれていたライトモード（light mode）が無くなりました。
+<p>GUIは最小限にとどめておきたい方には好まれていた、ライトモード（light mode）が廃止となりました。
 『科学技術計算のためのPython入門――開発基礎、必須ライブラリ、高速化』のでは、p.92～93で
 ライトモードの紹介をしています。Spyderのバージョン3.0.0以降では、このライトモードが使えなくなります。</p>
 </div>
+</div>
+<div class="section" id="anaconda-4-3-python-3-6">
+<h2>Anaconda 4.3（Python 3.6版）が登場<a class="headerlink" href="#anaconda-4-3-python-3-6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本書の執筆時点（2016年9月）では、ディストリビューションパッケージのAnacondaは4.2が最新で、
+Python 3.5が採用されていました。しかし、2017年2月にリリースされたAnaconda 4.3.0では、
+Python 3.6が採用されています。Python 3.6でも、基本的に本書のプログラムを動かす
+うえで問題はありません。Python本体よりも、ライブラリのバージョンによって何らかの問題が
+生じる可能性がありますが、そのような場合は <a class="reference external" href="http://gihyo.jp/book/2016/978-4-7741-8388-6/">出版元のサポートページ</a> からお問い合わせください。</p>
+<p>Windows向けでは、Python本体（CPython）のコンパイルに使われているC/C++コンパイラのバージョンはPython 3.5と同じです。したがって、
+C/C++コンパイラを変更することなく、Python 3.6のAnaconda 4.3.0に移行できます。</p>
+<p>なお、Anaconda 4.3.0に使われている主要パッケージのバージョンは、以下の表のとおりです。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パッケージ名</th>
+<th class="head">バージョン</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Python</td>
+<td>3.6</td>
+</tr>
+<tr class="row-odd"><td>NumPy</td>
+<td>1.11.3</td>
+</tr>
+<tr class="row-even"><td>SciPy</td>
+<td>0.18.1</td>
+</tr>
+<tr class="row-odd"><td>matplotlib</td>
+<td>2.0.0</td>
+</tr>
+<tr class="row-even"><td>pandas</td>
+<td>0.19.2</td>
+</tr>
+<tr class="row-odd"><td>IPython</td>
+<td>5.1.0</td>
+</tr>
+<tr class="row-even"><td>spyder</td>
+<td>3.1.2</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -86,6 +134,7 @@ Anaconda 4.2.0)をインストールすると、Spyder 3.0.0がインストー�
 <li class="toctree-l1"><a class="reference internal" href="install_pkgs.html">Pythonのインストール全般</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">書籍に関連したアップデート情報</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#spyder-3-0-0">Spyder 3.0.0がリリース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-4-3-python-3-6">Anaconda 4.3（Python 3.6版）が登場</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Gitでバージョンを管理する</a></li>
@@ -118,7 +167,7 @@ Anaconda 4.2.0)をインストールすると、Spyder 3.0.0がインストー�
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/updates.txt"
+              <a href="_sources/updates.rst.txt"
                 rel="nofollow">ソースコードを表示</a>
           </div>
         </div>
@@ -126,8 +175,8 @@ Anaconda 4.2.0)をインストールすると、Spyder 3.0.0がインストー�
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Kenji Nakakuki.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1 で生成しました。
+        &#169; Copyright 2016, Kenji Nakakuki.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1 で生成しました。
     </div>
         </div>
         <div class="clearer"></div>
