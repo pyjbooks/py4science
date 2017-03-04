@@ -1,3 +1,9 @@
+p. 196
+誤）OOXML形式（Office Open XML、拡張子.xlsx/.xlsm）：openpyxl、xlwings
+正）OOXML形式（Office Open XML、拡張子.xlsx/.xlsm）：xlrd、openpyxl、xlwings
+（注：xlrdのVersion 0.8.0以降では、OOXML形式にも対応しており上記のとおり訂正しますが、
+      まだまだ機能的には発展途上と考えておいた方が良いでしょう。）
+
 ※以下の4つの誤記は、第2刷以降修正済み
 
 p. 199とp.200のソースコード中(各ページ１か所)
