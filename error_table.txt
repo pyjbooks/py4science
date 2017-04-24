@@ -1,3 +1,7 @@
+p. 195 (上から6行目)
+誤）laodtxtとgenfromtxtを利用...
+正）loadtxtとgenfromtxtを利用...
+
 p. 196
 誤）OOXML形式（Office Open XML、拡張子.xlsx/.xlsm）：openpyxl、xlwings
 正）OOXML形式（Office Open XML、拡張子.xlsx/.xlsm）：xlrd、openpyxl、xlwings
