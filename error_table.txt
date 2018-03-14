@@ -16,6 +16,26 @@ p. 222 (IPythonのコード例のうち、In [3]: の行)
 誤）# 16 bit符号なし整数型のndarray
 正）# 64 bitの浮動小数点で構成される複素数
 
+p.294 
+誤---ここから
+In [10]: dat8.index = ['un', 'due', 'trois', 'quatre']
+Out[10]: dat8
+un 1
+due 3
+trois NaN
+quatre 12
+dtype: float64
+誤---ここまで
+正---ここから
+In [10]: dat7.index = ['un', 'due', 'trois', 'quatre']
+Out[10]: dat7
+un         1
+due        3
+trois      6
+quatre    12
+dtype: int64
+正---ここまで
+
 
 ※以下の4つの誤記は、第2刷以降修正済み
 
