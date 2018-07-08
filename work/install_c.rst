@@ -77,6 +77,6 @@ Windowsでは、Microsoft社のVisual C++（Visual Studio）をインストー�
     `Visual Studio 2015 Community`_, , , "     〇", "     〇"
 
 .. _`Visual C++ Compiler for Python 2.7`: https://www.microsoft.com/en-us/download/details.aspx?id=44266
-.. _`Visual C++ Build Tools 2015`: http://landinghub.visualstudio.com/visual-cpp-build-tools
-.. _`Visual Studio 2015 express for Windows Desktop`: https://www.visualstudio.com/ja-jp/products/visual-studio-express-vs.aspx
-.. _`Visual Studio 2015 Community`: https://www.visualstudio.com/ja-jp/products/visual-studio-community-vs.aspx
+.. _`Visual C++ Build Tools 2015`: https://www.microsoft.com/ja-JP/download/details.aspx?id=48159
+.. _`Visual Studio 2015 express for Windows Desktop`: https://visualstudio.microsoft.com/vs/older-downloads/?lang=en
+.. _`Visual Studio 2015 Community`: https://visualstudio.microsoft.com/vs/older-downloads/?lang=en
